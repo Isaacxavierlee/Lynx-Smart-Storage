@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Storage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Smart Storage</h1>
+    <form method="POST" action="/add">
+        <label for="name">Item Name:</label>
+        <input type="text" name="name" required>
+        <br>
+        <label for="description">Description:</label>
+        <textarea name="description" rows="3"></textarea>
+        <br>
+        <button type="submit">Add Item</button>
+    </form>
+    <h2>Stored Items:</h2>
+    <ul>
+        {% for item in items %}
+            <li>{{ item.name }} - {{ item.description }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
